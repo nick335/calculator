@@ -1,0 +1,402 @@
+@use '../abstract/config.scss';
+@use '../abstract/mixin.scss' as *;
+
+
+.main{
+  height: 100vh;
+  @include flexCenter;
+
+  &-theme1{
+    background-color: hsl(224, 26%, 31%);
+  }
+  &-theme2{
+    background-color: hsl(0, 0%, 90%);
+  }
+  &-theme3{
+    background-color: hsl(268, 75%, 9%);
+  }
+
+  &-container{
+    @include width;
+    @include flexColumn;
+  }
+}
+.calc-top-div{
+  width: 100%;
+  @include flexSpacebetween;
+  align-items: center;
+}
+.calc{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  align-items: center;
+
+  &-theme1{
+    color: hsl(0, 0%, 100%);
+  }
+  &-theme2{
+    color: hsl(60, 10%, 19%);
+  }
+  &-theme3{
+    color: hsl(52, 100%, 62%);
+  }
+}
+.selector{
+  font-family: 'League Spartan' , sans-serif;
+  @include flexColumn;
+  width: 82px;
+
+  &-num{
+    @include flexSpacebetween;
+    width: 40px;
+    margin-left: auto;
+    margin-bottom: 0.3rem;
+    .themes{
+      font-size: 10px;
+      font-weight: 700px;
+      cursor: pointer;
+    
+
+      &-theme1{
+        color: hsl(0, 0%, 100%);
+      }
+      &-theme2{
+        color: hsl(60, 10%, 19%);
+      }
+      &-theme3{
+        color: hsl(52, 100%, 62%);
+      }
+    }
+  }
+
+  &-display{
+    @include flexSpacebetween;
+
+    .theme-text{
+      font-family: 'League Spartan', sans-serif;
+      font-size: 9px;
+      text-transform: uppercase;
+
+      margin-right: 5px;
+
+      &-theme1{
+        color: hsl(0, 0%, 100%);
+      }
+
+      &-theme2{
+        color: hsl(60, 10%, 19%);
+      }
+      &-theme3{
+        color: hsl(52, 100%, 62%);
+      }
+    }
+
+    .theme-box{
+      margin-left: 5px;
+      width: 50px;
+      height: 17px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      padding: 0 0.25rem;
+
+      &-theme1{
+        background-color: hsl(223, 31%, 20%);
+        justify-content: flex-start;
+      }
+
+      &-theme2{
+        background-color: hsl(0, 5%, 81%);
+        justify-content: center;
+      }
+      &-theme3{
+        background-color: hsl(268, 71%, 12%);
+        justify-content: flex-end;
+      }
+    }
+
+    .theme-circle{
+      width: 11px;
+      height: 11px;
+      border-radius: 100%;
+
+      &-theme1{
+        background-color: hsl(6, 63%, 50%);
+      }
+
+      &-theme2{
+        background-color: hsl(25, 98%, 40%);
+      }
+      &-theme3{
+        background-color: hsl(176, 100%, 44%);
+      }
+    }
+  }
+}
+.display-box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
+  // width: 100%;
+  height: 74px;
+  margin: 20px 0;
+  border-radius: 8px;
+
+
+  &-theme1{
+    background-color: hsl(224, 36%, 15%);
+  }
+  &-theme2{
+    background-color: hsl(0, 0%, 93%);
+  }
+  &-theme3{
+    background-color: hsl(268, 71%, 12%);
+  }
+}
+.display-text{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; 
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+
+  &-theme1{
+    color: hsl(0, 0%, 100%);
+  }
+  &-theme2{
+    color: hsl(60, 10%, 19%);
+  }
+  &-theme3{
+    color: hsl(52, 100%, 62%);
+  }
+}
+.input-container{
+  width: 100%;
+  background-color: hsl(268, 71%, 12%);
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  @include Grid;
+  grid-gap: 13px;
+
+  &-theme1{
+    background-color: hsl(223, 31%, 20%);
+  }
+  &-theme2{
+    background-color: hsl(0, 5%, 81%);
+  }
+  &-theme3{
+    background-color: hsl(268, 71%, 12%);
+  }
+}
+
+.box{
+  width: 58px;
+  height: 35px;
+  background-color:  hsl(268, 47%, 21%);
+  box-shadow: 0 2px 0px 0px hsl(290, 70%, 36%);
+  padding: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  cursor: pointer;
+
+ 
+  &-theme1{
+    background-color: hsl(32, 26%, 89%);
+    box-shadow: 0 2px 0px 0px hsl(23, 10%, 65%);
+
+    @media(hover: hover){
+      &:hover{
+      background-color: hsl(0, 0%, 100%);
+     }
+   }
+  }
+  &-theme2{
+    background-color:  hsl(45, 7%, 89%);
+    box-shadow: 0 2px 0px 0px hsl(35, 11%, 61%);
+
+    @media(hover: hover){
+      &:hover{
+      background-color: hsl(0, 0%, 100%);
+     }
+   }
+  }
+  &-theme3{
+    background-color:  hsl(268, 47%, 21%);
+    box-shadow: 0 2px 0px 0px hsl(290, 70%, 36%);
+
+    @media(hover : hover){
+      &:hover{
+        background-color: rgb(69, 24, 120);
+      }
+    }
+  }
+  
+
+  &-expand{
+    width: 132px;
+    padding: 12.5px 0;
+    grid-column: 1 / span 2;
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0 2px 0px 0px hsl(285, 91%, 52%);
+
+    &-theme1{
+      background-color: hsl(225, 21%, 49%);
+      box-shadow: 0 2px 0px 0px hsl(224, 28%, 35%);
+
+      @media(hover: hover){
+        &:hover{
+        background-color: hsl(225, 24%, 52%);
+        opacity: 0.7;
+       }
+     }
+    }
+    &-theme2{
+      background-color: hsl(185, 42%, 37%);
+      box-shadow: 0 2px 0px 0px hsl(185, 58%, 25%);
+
+      @media (hover : hover){
+        &:hover{
+          background-color: hsl(185, 43%, 50%);
+        }
+      }
+    }
+    &-theme3{
+      background-color: hsl(281, 89%, 26%);
+      box-shadow: 0 2px 0px 0px hsl(285, 91%, 52%);
+
+      @media (hover : hover){
+        &:hover{
+          background-color: hsl(281, 83%, 38%);
+        }
+      }
+    }
+
+    .value{
+      font-size: 14px;
+      color: hsl(0, 0%, 100%);
+    }
+  }
+  &-expand2{
+    width: 132px;
+    padding: 10px 0;
+    grid-column: 3 / span 2;
+    background-color: hsl(176, 100%, 44%);
+    box-shadow: 0 2px 0px 0px  hsl(177, 92%, 70%);
+
+    &-theme1{
+      background-color: hsl(6, 63%, 50%);
+      box-shadow: 0 2px 0px 0px  hsl(6, 70%, 34%);
+
+      @media(hover : hover){
+        &:hover{
+          background-color: hsl(6, 63%, 50%);
+         }
+      }
+    }
+    &-theme2{
+      background-color: hsl(25, 98%, 40%);
+      box-shadow: 0 2px 0px 0px  hsl(25, 99%, 27%);
+
+      @media(hover: hover){
+        &:hover{
+          background-color: hsl(25, 97%, 46%);
+        }
+      }
+    }
+    &-theme3{
+      background-color: hsl(176, 100%, 44%);
+      box-shadow: 0 2px 0px 0px  hsl(177, 92%, 70%);
+
+      @media(hover: hover){
+        &:hover{
+          background-color: hsl(177, 68%, 64%);
+        }
+      }
+    }
+    .value{
+      color: hsl(0, 0%, 100%);
+
+     
+      &-theme3{
+        color: hsl(198, 20%, 13%);
+      }
+    }
+
+  }
+}
+.del-box{
+  padding: 12.5px 0;
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0 2px 0px 0px hsl(285, 91%, 52%);
+  
+  &-theme1{
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0 2px 0px 0px hsl(224, 28%, 35%);
+
+    @media(hover: hover){
+      &:hover{
+      background-color: hsl(225, 24%, 52%);
+      opacity: 0.7;
+     }
+   }
+  }
+  &-theme2{
+    background-color: hsl(185, 42%, 37%);
+    box-shadow: 0 2px 0px 0px hsl(185, 58%, 25%);
+
+    @media (hover : hover){
+      &:hover{
+        background-color: hsl(185, 43%, 50%);
+      }
+    }
+  }
+  &-theme3{
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0 2px 0px 0px hsl(285, 91%, 52%);
+
+    @media (hover : hover){
+      &:hover{
+        background-color: hsl(281, 83%, 38%);
+      }
+    }
+  }
+
+
+  .value{
+    font-size: 14px;
+    color: hsl(0, 0%, 100%);
+  }
+}
+.value{
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: hsl(52, 100%, 62%);
+  text-align: center;
+  margin: auto;
+
+  &-theme1{
+    color: hsl(221, 14%, 31%);
+  }
+  &-theme2{
+    color: hsl(60, 10%, 19%);
+  }
+  &-theme3{
+    color: hsl(52, 100%, 62%);
+  }
+}
+

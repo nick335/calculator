@@ -1,0 +1,25 @@
+@mixin flexSpacebetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin width{
+  width: 305px;
+}
+
+@mixin flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin Grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
