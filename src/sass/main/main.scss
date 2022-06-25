@@ -206,9 +206,7 @@
 .box{
   width: 58px;
   height: 35px;
-  background-color:  hsl(268, 47%, 21%);
-  box-shadow: 0 2px 0px 0px hsl(290, 70%, 36%);
-  padding: 10px 0;
+  padding: 0px 0;
   border-radius: 8px;
   display: flex;
   cursor: pointer;
@@ -226,7 +224,7 @@
   }
   &-theme2{
     background-color:  hsl(45, 7%, 89%);
-    box-shadow: 0 2px 0px 0px hsl(35, 11%, 61%);
+    box-shadow: 0 4px 0px 0px hsl(35, 11%, 61%);
 
     @media(hover: hover){
       &:hover{

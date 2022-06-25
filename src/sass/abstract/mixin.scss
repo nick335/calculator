@@ -13,7 +13,9 @@
 @mixin width{
   width: 305px;
 }
-
+@mixin mobileWidth {
+  width: 85vw;
+}
 @mixin flexColumn{
   display: flex;
   flex-direction: column;
