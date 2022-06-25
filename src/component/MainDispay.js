@@ -17,7 +17,7 @@ export default function MainDisplay(props){
 
   return(
     <div className={`display-box ${displayBoxClassname}`}>
-      <h1 className={`display-text ${displayTextClassname}`}>{props.display}</h1>
+      <h1 className={`display-text ${displayTextClassname}`}>{props.error === true ? 'Math Error' : props.display}</h1>
     </div>
   )
 }

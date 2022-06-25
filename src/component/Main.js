@@ -6,32 +6,41 @@ import InputBox from "./InputBox";
 import { nanoid } from "nanoid";
 
 export default function Main(){
-  const [theme, setTheme] = React.useState('theme2')
+  const [theme, setTheme] = React.useState('theme1')
   const [display, setDisplay] = React.useState('')
   const [errorMessage, setErrorMessage] = React.useState(false)
 
+  //set theme to theme 1
   function setTheme1(){
     setTheme('theme1')
   }
+  //set theme to theme2
   function setTheme2(){
     setTheme('theme2')
   }
+  //set theme to theme3
   function setTheme3(){
     setTheme('theme3')
   }
+  //enter input
   const enterInput = React.useCallback((value) => {
     if(errorMessage){
-      setErrorMessage(true)
+      setErrorMessage(false)
+      setDisplay('')
+      const string= value.toString()
+      setDisplay(prev => prev + string)
+    }else{
+      const string= value.toString()
+      setDisplay(prev => prev + string)
     }
-    const string= value.toString()
-    setDisplay(prev => prev + string)
+    
   }, [errorMessage])
    //clear display
   const reset = React.useCallback(() => {
     setErrorMessage(false)
     setDisplay('')
   }, [])
-
+  // checking ahether the parameter passed is an numeric
   function isNumber(char) {
     if (typeof char !== 'string') {
       return false;
@@ -43,6 +52,7 @@ export default function Main(){
   
     return !isNaN(char);
   }
+  //checking for possible error
   function possibleError1(string){
     const possibleMathErorrs = ['++', '--', '..','xx','//','/x','x/', '+/', '-/','+x', '-x']
     const array = []
@@ -60,6 +70,7 @@ export default function Main(){
       return false
      }
   }
+  //checking for possible errors
   const possibleError2 = React.useCallback((string) => {
     const possibleMathErorrs2 = ['+-', '-+', '.+','+.', '-.','.-','.x','x.', './', '/.']
     for (let index = 0; index < possibleMathErorrs2.length; index++) {
@@ -102,48 +113,7 @@ export default function Main(){
       
      }
   }, [])
-  // function possibleError2(string){
-  //   const possibleMathErorrs2 = ['+-', '-+', '.+','+.', '-.','.-','.x','x.', './', '/.']
-  //   for (let index = 0; index < possibleMathErorrs2.length; index++) {
-  //     const element = possibleMathErorrs2[index];
-  //     if(string.includes(element)){
-  //       const index = string.indexOf(element)
-  //       const lastindex = string.length - 1
-  //       if(index === 0 || !isNumber(string[lastindex])  ){
-  //         return true
-  //       }else{
-  //        let haystack = string
-  //        let needle = element
-  //        let pos = 0; // Position Ref
-  //        let result = []; // Final output of all index's.
-  //         // Loop to check all occurrences 
-  //        while (haystack.indexOf(needle, pos) !== -1) {
-  //        result.push(haystack.indexOf(needle , pos));
-  //        pos = haystack.indexOf(needle , pos) + 1;
-  //        }
-  //        const array = []
-  //        for (let j = 0; j < result.length; j++) {
-  //         const element2 = result[j];
-  //         const prev = element2 - 1
-  //         const next = element2 + 2
-  //         if(isNumber(string[prev]) && isNumber(string[next])){
-  //           array.push(true)
-  //         }else{
-  //           array.push(false)
-  //         }
-  //        }
-  //        if(array.includes(false)){
-  //         return true
-  //        }else{
-  //         return false
-  //        }
-  //       }
-  //     }else{
-  //       return false
-  //     }
-      
-  //    }
-  // }
+ //checking the last index of the input
   function endsWithNumber(str){
     const error = ['+', '-', 'x','/']
     const index = str.length - 1
@@ -154,6 +124,7 @@ export default function Main(){
       return false
     }
   }
+  //checking for 3 symbol in a row
   function checkConsectutive(string){
     const str = string
     const pattern = /([+,-,x,/])\1\1+/g;
@@ -173,34 +144,25 @@ export default function Main(){
     }
     else if(possibleError1(string) === false && possibleError2(string) === false && endsWithNumber(string) === false && checkConsectutive(string) === false){
       const newString = string.replace(/x/g, '*')
-      console.log(newString)
       const calc = eval(newString)
-      console.log(calc)
+      const calcString = calc.toString()
+      setDisplay(calcString)
     }else{
       setErrorMessage(true)
     }
   }, [display, possibleError2])
-  // function equals(){
-  //   const string = display
-  //   if(containsNumber(string) === false && string !== ''){
-  //       setErrorMessage(true)
-  //   }
-  //   else if(possibleError1(string) === false && possibleError2(string) === false && endsWithNumber(string) === false && checkConsectutive(string) === false){
-  //     const newString = string.replace(/x/g, '*')
-  //     console.log(newString)
-  //     const calc = eval(newString)
-  //     console.log(calc)
-  //   }else{
-  //     setErrorMessage(true)
-  //   }
-  // }
   //delete from display
   function del(){
     if (errorMessage) {
+      setDisplay('')
       setErrorMessage(false)
+      
+    }else{
+      setDisplay(prev => prev.slice(0, -1))
     }
-    setDisplay(prev => prev.slice(0, -1))
+    
   }
+  //checking whether the input contains a number
   function containsNumber(str) {
     return /\d/.test(str);
   }
@@ -275,6 +237,7 @@ let inputClassname = ''
        <MainDisplay 
         theme = {theme}
         display = {display}
+        error = {errorMessage}
        />
        <div className={`input-container ${inputClassname}`}>
           {dataElements}
